@@ -44,19 +44,33 @@ if __name__ == "__main__":
       
       export_to_omx = m.tool("inro.emme.data.matrix.export_to_omx")
       export_to_omx(mats, omx_file)
+      
+      #remove appended names so mat names are just numbers
+      exportByNumber = True
+      if exportByNumber:
+        omxFile = omx.openFile(omx_file,"a")
+        matNames = omxFile.listMatrices()
+        matsLookup = dict(map(lambda x: x.split("_"), matNames))
+        for i in range(len(matsLookup.keys())):
+            omxFile[matsLookup.keys()[i]] = omxFile[matNames[i]]
+            del omxFile[matNames[i]]
+        omxFile.close()
       print(",".join(mats) + " -> " + omx_file)
 
     #else import
     else:
 
-      #map matrix names in file to matrix numbers in bank
+      #map matrix names in file to matrix numbers in bank if needed
       matNames = omx.openFile(omx_file).listMatrices()
-      matsLookup = dict(map(lambda x: x.split("_"), matNames))
-      matsDict = {}
-      for aMat in mats:
-        if aMat in matsLookup.keys():
-          matsDict[aMat + "_" + matsLookup[aMat]] = aMat
-      
+      if "_" in matNames[0]:
+        matsLookup = dict(map(lambda x: x.split("_"), matNames))
+        matsDict = {}
+        for aMat in mats:
+          if aMat in matsLookup.keys():
+            matsDict[aMat + "_" + matsLookup[aMat]] = aMat
+      else:
+        matsDict = dict(zip(matNames, matNames))
+        
       #import matrices
       import_from_omx = m.tool("inro.emme.data.matrix.import_from_omx")
       scen = m.emmebank.scenario(scenarioNum)
