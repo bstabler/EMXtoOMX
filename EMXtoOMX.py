@@ -50,10 +50,10 @@ if __name__ == "__main__":
       if exportByNumber:
         omxFile = omx.openFile(omx_file,"a")
         matNames = omxFile.listMatrices()
-        matsLookup = dict(map(lambda x: x.split("_"), matNames))
+        matsLookup = dict(zip(map(lambda x: x.split("_")[0], matNames), matNames))
         for i in range(len(matsLookup.keys())):
-            omxFile[matsLookup.keys()[i]] = omxFile[matNames[i]]
-            del omxFile[matNames[i]]
+            omxFile[matsLookup.keys()[i]] = omxFile[matsLookup.values()[i]]
+            del omxFile[matsLookup.values()[i]]
         omxFile.close()
       print(",".join(mats) + " -> " + omx_file)
 
