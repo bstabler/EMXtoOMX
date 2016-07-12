@@ -69,7 +69,11 @@ if __name__ == "__main__":
           if aMat in matsLookup.keys():
             matsDict[aMat + "_" + matsLookup[aMat]] = aMat
       else:
-        matsDict = dict(zip(matNames, matNames))
+        matsDictAll = dict(zip(matNames, matNames))
+        matsDict = {}
+        for aMat in mats:
+          if aMat in matsDictAll.keys():
+            matsDict[aMat] = aMat
         
       #import matrices
       import_from_omx = m.tool("inro.emme.data.matrix.import_from_omx")
