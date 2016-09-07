@@ -16,12 +16,19 @@ import sys, os.path, os, omx
 #run command line version
 if __name__ == "__main__":
 
-    #start EMME desktop and attach a modeller session
+    #start EMME desktop 
     empFile = sys.argv[1]
     scenarioNum = sys.argv[2]
     omxFile = sys.argv[3]
     ioMode = sys.argv[4]
     desktop = d.start_dedicated(False, "bts", empFile)
+    
+    #open a database if needed and attach a modeller session
+    if desktop.data_explorer().active_database() is None:
+      desktop.data_explorer().databases()[0].open()
+      print("open first project database: " + desktop.data_explorer().active_database().name())
+    else:
+      print("using active database: " + desktop.data_explorer().active_database().name())
     m = m.Modeller(desktop)
     
     #determine if import or export mode
