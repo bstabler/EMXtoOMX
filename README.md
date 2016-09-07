@@ -1,9 +1,8 @@
 # EMXtoOMX
 
-Read and write OMX matrices from/to the EMME databank
-
-Can export mfs, mos, and mds, but only one type at a time
-Uses the active databank in the project or else the first databank
+Read and write OMX matrices from/to the EMME databank. Can export mfs, mos, 
+and mds, but only one type at a time.  Uses the active databank in the project 
+or else the first databank.
 
 Arguments: emme_project scenario omx_file_name -i|e mat1 mat2 matN
 
