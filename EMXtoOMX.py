@@ -4,8 +4,8 @@
 #Can export mfs, mos, and mds, but only one type at a time
 #Arguments: emme_project scenario omx_file_name -i|e mat1 mat2 matN
 #SET EMMEPY="C:\Program Files\INRO\Emme\Emme 4\Emme-4.2.5\Python27\python.exe"
-#Example export: %EMMEPY% EMXtoOMX.py myproj.emp 9999 mats.omx -e mf1 mf2 mf3
-#Example import: %EMMEPY% EMXtoOMX.py myproj.emp 9999 mats.omx -i mf1 mf2 mf3
+#Example export: %EMMEPY% EMXtoOMX.py New_Project.emp 3001 C:\projects\mats.omx -e mf1 mf2 mf3
+#Example import: %EMMEPY% EMXtoOMX.py New_Project.emp 3001 C:\projects\mats.omx -i mf1 mf2 mf3
 ######################################################################
 
 #load libraries
@@ -39,7 +39,9 @@ if __name__ == "__main__":
 
     #get location of bank
     bankDir = os.path.dirname(m.emmebank.path)
-    omx_file = os.path.join(bankDir, "emmemat", omxFile)
+    
+    #assume full filename for omx
+    omx_file = omxFile
 
     #get matrix names from command line argument
     mats = []
