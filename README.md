@@ -11,7 +11,7 @@ Arguments: emme_project scenario omx_file_name -i|e mat1 mat2 matN
 SET EMMEPY="C:\Program Files\INRO\Emme\Emme 4\Emme-4.2.5\Python27\python.exe"
 
 ### Example export
-%EMMEPY% EMXtoOMX.py myproj.emp 9999 mats.omx -e mf1 mf2 mf3
+%EMMEPY% EMXtoOMX.py myproj.emp 9999 C:\projects\mats.omx -e mf1 mf2 mf3
 
 ### Example import
-%EMMEPY% EMXtoOMX.py myproj.emp 9999 mats.omx -i mf1 mf2 mf3
+%EMMEPY% EMXtoOMX.py myproj.emp 9999 C:\projects\mats.omx -i mf1 mf2 mf3
