@@ -6,7 +6,7 @@ or else the first databank.
 
 Arguments: emme_project scenario omx_file_name -i|e mat1 mat2 matN
 
-#Example usage
+# Example usage
 
 SET EMMEPY="C:\Program Files\INRO\Emme\Emme 4\Emme-4.2.5\Python27\python.exe"
 
