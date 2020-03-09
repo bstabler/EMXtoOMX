@@ -22,4 +22,5 @@ SET EMMEPY="C:\Program Files\INRO\Emme\Emme 4\Emme-4.2.5\Python27\python.exe"
 ### Example import with names
 %EMMEPY% EMXtoOMX.py myproj.emp 9999 C:\projects\mats.omx -i mfsurvey mftime
 
-
+# OMX Package Name 
+If the omx module cannot be found, then it may be because it was renamed to openmatrix in a later distribution.  See [this version](https://github.com/bstabler/EMXtoOMX/issues/4) of the script for a renamed package.  
